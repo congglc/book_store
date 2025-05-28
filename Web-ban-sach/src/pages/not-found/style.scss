@@ -1,0 +1,50 @@
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+  text-align: center;
+  
+  .not-found-content {
+    max-width: 600px;
+    
+    h1 {
+      font-size: 8rem;
+      font-weight: 700;
+      color: #f44336;
+      margin: 0;
+      line-height: 1;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .not-found-actions {
+      .back-home-btn {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background-color: #4caf50;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+        
+        &:hover {
+          background-color: #388e3c;
+        }
+      }
+    }
+  }
+}

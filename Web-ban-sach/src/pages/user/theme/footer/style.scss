@@ -1,0 +1,127 @@
+.footer {
+  background-color: var(--primary-light);
+  padding: 50px 0 20px;
+  
+  .container {
+    .footer__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+      
+      .footer__brand {
+        .footer__title {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: var(--primary-color);
+          margin-bottom: 15px;
+        }
+        
+        .footer__social {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 15px;
+          
+          li {
+            a {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 35px;
+              height: 35px;
+              background-color: var(--white);
+              color: var(--primary-color);
+              border-radius: 50%;
+              transition: all 0.3s;
+              
+              &:hover {
+                background-color: var(--primary-color);
+                color: var(--white);
+                transform: translateY(-3px);
+              }
+            }
+          }
+        }
+        
+        .footer__slogan {
+          font-weight: 600;
+          color: var(--text-color);
+          margin-bottom: 10px;
+        }
+        
+        .footer__description {
+          color: var(--text-light);
+        }
+      }
+      
+      .footer__links, .footer__support, .footer__contact {
+        .footer__subtitle {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: var(--text-color);
+          margin-bottom: 15px;
+        }
+        
+        ul {
+          li {
+            margin-bottom: 10px;
+            
+            a {
+              color: var(--text-light);
+              transition: color 0.3s;
+              
+              &:hover {
+                color: var(--primary-color);
+              }
+            }
+          }
+        }
+      }
+      
+      .footer__contact {
+        .footer__info {
+          li {
+            color: var(--text-light);
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+    
+    .footer__bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      
+      p {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 0 20px;
+    
+    .container {
+      .footer__content {
+        grid-template-columns: 1fr;
+        
+        .footer__brand {
+          text-align: center;
+          
+          .footer__social {
+            justify-content: center;
+          }
+        }
+        
+        .footer__links, .footer__support, .footer__contact {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+

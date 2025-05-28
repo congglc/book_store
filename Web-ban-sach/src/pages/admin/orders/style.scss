@@ -1,0 +1,421 @@
+.admin-orders {
+  padding: 20px;
+  
+  .admin-content {
+    .admin-header {
+      margin-bottom: 30px;
+      
+      h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #333;
+      }
+    }
+    
+    .filter-section {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      
+      .search-box {
+        flex: 1;
+        position: relative;
+        
+        .search-icon {
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #666;
+        }
+        
+        input {
+          width: 100%;
+          padding: 10px 10px 10px 35px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          
+          &:focus {
+            outline: none;
+            border-color: #0099cc;
+          }
+        }
+      }
+      
+      .status-filter {
+        width: 200px;
+        position: relative;
+        
+        .filter-icon {
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #666;
+        }
+        
+        select {
+          width: 100%;
+          padding: 10px 10px 10px 35px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 10px center;
+          background-size: 16px;
+          
+          &:focus {
+            outline: none;
+            border-color: #0099cc;
+          }
+        }
+      }
+    }
+    
+    .orders-table-container {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow-x: auto;
+      
+      .orders-table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        th, td {
+          padding: 15px;
+          text-align: left;
+          border-bottom: 1px solid #eee;
+        }
+        
+        th {
+          font-weight: 600;
+          color: #333;
+          background-color: #f9f9f9;
+        }
+        
+        tr:last-child td {
+          border-bottom: none;
+        }
+        
+        .customer-info {
+          .customer-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+          }
+          
+          .customer-phone {
+            font-size: 0.9rem;
+            color: #666;
+          }
+        }
+        
+        .status-badge {
+          padding: 5px 10px;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          
+          &.status-completed {
+            background-color: #e6f7e6;
+            color: #4caf50;
+          }
+          
+          &.status-pending {
+            background-color: #fff8e6;
+            color: #ff9800;
+          }
+          
+          &.status-processing {
+            background-color: #e6f7ff;
+            color: #0099cc;
+          }
+          
+          &.status-cancelled {
+            background-color: #ffe6e6;
+            color: #ff6b6b;
+          }
+        }
+        
+        .action-buttons {
+          .view-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #e6f7ff;
+            color: #0099cc;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            
+            &:hover {
+              background-color: #0099cc;
+              color: white;
+              transform: translateY(-2px);
+            }
+          }
+        }
+        
+        .no-data {
+          text-align: center;
+          padding: 30px;
+          color: #666;
+        }
+      }
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      
+      .page-button {
+        width: 35px;
+        height: 35px;
+        margin: 0 5px;
+        border-radius: 5px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #333;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        
+        &:hover {
+          border-color: #0099cc;
+          color: #0099cc;
+        }
+        
+        &.active {
+          background-color: #0099cc;
+          border-color: #0099cc;
+          color: white;
+        }
+      }
+    }
+    
+    .order-detail-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      
+      .modal-content {
+        background-color: #fff;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        
+        .modal-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 20px;
+          border-bottom: 1px solid #eee;
+          
+          h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+          }
+          
+          .close-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #666;
+            cursor: pointer;
+            
+            &:hover {
+              color: #ff6b6b;
+            }
+          }
+        }
+        
+        .order-detail {
+          padding: 20px;
+          
+          .detail-section {
+            margin-bottom: 25px;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+            
+            h3 {
+              font-size: 1.1rem;
+              font-weight: 600;
+              color: #333;
+              margin-bottom: 15px;
+              padding-bottom: 8px;
+              border-bottom: 1px solid #eee;
+            }
+            
+            .customer-details, .order-info {
+              p {
+                margin-bottom: 8px;
+                
+                &:last-child {
+                  margin-bottom: 0;
+                }
+                
+                strong {
+                  font-weight: 600;
+                  color: #555;
+                  display: inline-block;
+                  width: 150px;
+                }
+              }
+            }
+            
+            .order-items-table {
+              width: 100%;
+              border-collapse: collapse;
+              
+              th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #eee;
+              }
+              
+              th {
+                font-weight: 600;
+                color: #555;
+                background-color: #f9f9f9;
+              }
+            }
+            
+            .order-summary {
+              .summary-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 0;
+                
+                &.total {
+                  margin-top: 10px;
+                  padding-top: 10px;
+                  border-top: 1px solid #eee;
+                  font-weight: 700;
+                  font-size: 1.1rem;
+                  color: #ff6b6b;
+                }
+              }
+            }
+            
+            .status-actions {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 10px;
+              
+              .status-button {
+                padding: 10px 15px;
+                border-radius: 5px;
+                font-weight: 600;
+                cursor: pointer;
+                border: none;
+                transition: background-color 0.3s;
+                
+                &.processing {
+                  background-color: #e6f7ff;
+                  color: #0099cc;
+                  
+                  &:hover {
+                    background-color: #0099cc;
+                    color: white;
+                  }
+                }
+                
+                &.completed {
+                  background-color: #e6f7e6;
+                  color: #4caf50;
+                  
+                  &:hover {
+                    background-color: #4caf50;
+                    color: white;
+                  }
+                }
+                
+                &.cancelled {
+                  background-color: #ffe6e6;
+                  color: #ff6b6b;
+                  
+                  &:hover {
+                    background-color: #ff6b6b;
+                    color: white;
+                  }
+                }
+              }
+            }
+            
+            &.action-buttons {
+              display: flex;
+              justify-content: flex-end;
+              margin-top: 20px;
+              
+              .close-detail-button {
+                padding: 10px 20px;
+                background-color: #f0f0f0;
+                color: #333;
+                border: none;
+                border-radius: 5px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s;
+                
+                &:hover {
+                  background-color: #e0e0e0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .filter-section {
+    flex-direction: column;
+    
+    .status-filter {
+      width: 100% !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .orders-table-container {
+    .orders-table {
+      font-size: 0.9rem;
+      
+      th, td {
+        padding: 10px 8px !important;
+      }
+    }
+  }
+  
+  .status-actions {
+    flex-direction: column;
+    
+    .status-button {
+      width: 100%;
+    }
+  }
+}
+

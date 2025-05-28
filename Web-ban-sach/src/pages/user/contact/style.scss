@@ -1,0 +1,75 @@
+@use "sass:map";
+
+.title{
+  margin-top: 50px;
+  text-align: center;
+}
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+  
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  
+  .contact-map {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .contact-form {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #0099cc;
+
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+  
+    button {
+      padding: 12px;
+      background: #0099cc;
+
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 1px solid;
+  
+      &:hover {
+        background: #fff;
+        color:#0099cc;
+        border: #0099cc;
+
+      }
+    }
+  }
+  

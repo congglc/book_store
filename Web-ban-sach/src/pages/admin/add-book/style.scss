@@ -1,0 +1,188 @@
+.admin-add-book {
+  padding: 20px;
+  
+  .admin-content {
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      
+      h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #333;
+      }
+      
+      .back-button {
+        display: flex;
+        align-items: center;
+        padding: 8px 15px;
+        background-color: #f5f5f5;
+        color: #333;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s;
+        
+        svg {
+          margin-right: 8px;
+        }
+        
+        &:hover {
+          background-color: #e0e0e0;
+        }
+      }
+    }
+    
+    .add-book-form {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+        
+        .form-left, .form-right {
+          .form-group {
+            margin-bottom: 20px;
+            
+            label {
+              display: block;
+              margin-bottom: 8px;
+              font-weight: 600;
+              color: #333;
+              
+              .required {
+                color: #ff6b6b;
+              }
+            }
+            
+            input, textarea, select {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+              font-size: 0.95rem;
+              
+              &:focus {
+                outline: none;
+                border-color: #0099cc;
+              }
+              
+              &.error {
+                border-color: #ff6b6b;
+              }
+            }
+            
+            textarea {
+              resize: vertical;
+              min-height: 120px;
+            }
+            
+            .error-message {
+              color: #ff6b6b;
+              font-size: 0.85rem;
+              margin-top: 5px;
+            }
+            
+            .image-preview {
+              margin-top: 10px;
+              
+              img {
+                max-width: 100%;
+                max-height: 200px;
+                border-radius: 5px;
+              }
+            }
+          }
+          
+          .form-row {
+            display: flex;
+            gap: 15px;
+            
+            .form-group {
+              flex: 1;
+            }
+          }
+        }
+      }
+      
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        
+        .cancel-button, .save-button {
+          display: flex;
+          align-items: center;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s;
+          
+          svg {
+            margin-right: 8px;
+          }
+        }
+        
+        .cancel-button {
+          background-color: #f5f5f5;
+          color: #666;
+          text-decoration: none;
+          
+          &:hover {
+            background-color: #e0e0e0;
+          }
+        }
+        
+        .save-button {
+          background-color: #0099cc;
+          color: white;
+          border: none;
+          
+          &:hover {
+            background-color: #007aa3;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .add-book-form {
+    .form-grid {
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 15px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0 !important;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    
+    .cancel-button, .save-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
